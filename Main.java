@@ -1,7 +1,6 @@
 public class Main {
 
 }
-
 public abstract class Vehiculo {
     // Propiedades comunes
     private String id;
@@ -18,4 +17,12 @@ public abstract class Vehiculo {
     public double getKilometraje() { return kilometraje; }
     public void setKilometraje(double km) { this.kilometraje = km; }
     public double getCapacidadCarga() { return capacidadCarga; }
+    // Métodos abstractos
+    public abstract double calcularCostoMantenimiento();
+    public abstract String simularJornada(double kmRecorridos);
+    public abstract String obtenerEtiquetaAmbiental();
+    public abstract int evaluarRiesgo();
+    public abstract String diagnosticarNeumaticos();
+    public abstract boolean chequeoFrenado();
+    public abstract double calcularTiempoCarga(double cantidadKg);
 }
