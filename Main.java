@@ -70,3 +70,7 @@ public class Camion extends Vehiculo{
         return cantidadKg / getCapacidadCarga();
     }
 }
+public class Furgoneta extends Vehiculo {
+    private double volumen;
+    private double tarifaBase;
+}
