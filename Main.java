@@ -73,4 +73,9 @@ public class Camion extends Vehiculo{
 public class Furgoneta extends Vehiculo {
     private double volumen;
     private double tarifaBase;
+    public Furgoneta(String id, double kilometraje, double capacidadCarga, double volumen, double tarifaBase) {
+        super(id, kilometraje, capacidadCarga);
+        this.volumen = volumen;
+        this.tarifaBase = tarifaBase;
+    }
 }
