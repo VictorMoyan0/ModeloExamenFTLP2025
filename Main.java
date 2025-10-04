@@ -1,6 +1,7 @@
 public class Main {
 
 }
+
 public abstract class Vehiculo {
     // Propiedades comunes
     private String id;
@@ -34,42 +35,43 @@ public class Camion extends Vehiculo{
         this.ejes = ejes;
         this.consumoCombustibleKm = consumoKm;
     }
-        @Override
+    
     public double calcularCostoMantenimiento() {
         return ejes * 1000; // ejemplo simple
     }
 
-    @Override
+
     public String simularJornada(double kmRecorridos) {
         setKilometraje(getKilometraje() + kmRecorridos);
         return "Camión " + getId() + " recorrió " + kmRecorridos + " km, total: " + getKilometraje();
     }
 
-    @Override
+
     public String obtenerEtiquetaAmbiental() {
         return "Roja";
     }
 
-    @Override
+
     public int evaluarRiesgo() {
         return getKilometraje() > 100000 ? 8 : 4;
     }
 
-    @Override
+
     public String diagnosticarNeumaticos() {
         return "Revisar presión y desgaste";
     }
 
-    @Override
+
     public boolean chequeoFrenado() {
         return getKilometraje() > 100000;
     }
 
-    @Override
+
     public double calcularTiempoCarga(double cantidadKg) {
         return cantidadKg / getCapacidadCarga();
     }
 }
+
 public class Furgoneta extends Vehiculo {
     private double volumen;
     private double tarifaBase;
@@ -104,6 +106,7 @@ public class Furgoneta extends Vehiculo {
         return cantidadKg / 1500.0; // velocidad media de carga 1500 kg/h
     }
 }
+
 public class AutoEspecializado extends Vehiculo {
     private double costoBaseMantenimiento;
     private String tipoMotor; // "Eléctrico" o "Convencional"
@@ -111,5 +114,30 @@ public class AutoEspecializado extends Vehiculo {
         super(id, kilometraje, capacidadCarga);
         this.costoBaseMantenimiento = costoBaseMantenimiento;
         this.tipoMotor = tipoMotor;
+    }
+        public double calcularCostoMantenimiento() {
+        if(tipoMotor.equalsIgnoreCase("Eléctrico")) {
+            return costoBaseMantenimiento * 0.8; // descuento eléctrico
+        }
+        return costoBaseMantenimiento;
+    }
+    public String simularJornada(double kmRecorridos) {
+        setKilometraje(getKilometraje() + kmRecorridos);
+        return "Auto " + getId() + " recorrió " + kmRecorridos + " km, total: " + getKilometraje();
+    }
+    public String obtenerEtiquetaAmbiental() {
+        return tipoMotor.equalsIgnoreCase("Eléctrico") ? "Verde" : "Amarilla";
+    }
+    public int evaluarRiesgo() {
+        return 2; // siempre bajo riesgo
+    }
+    public String diagnosticarNeumaticos() {
+        return "Inspección rápida de presión";
+    }
+    public boolean chequeoFrenado() {
+        return false; // nunca requiere reemplazo
+    }
+    public double calcularTiempoCarga(double cantidadKg) {
+        return cantidadKg / getCapacidadCarga(); // velocidad según capacidad
     }
 }
