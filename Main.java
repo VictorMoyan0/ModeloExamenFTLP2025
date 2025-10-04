@@ -34,4 +34,39 @@ public class Camion extends Vehiculo{
         this.ejes = ejes;
         this.consumoCombustibleKm = consumoKm;
     }
+        @Override
+    public double calcularCostoMantenimiento() {
+        return ejes * 1000; // ejemplo simple
+    }
+
+    @Override
+    public String simularJornada(double kmRecorridos) {
+        setKilometraje(getKilometraje() + kmRecorridos);
+        return "Camión " + getId() + " recorrió " + kmRecorridos + " km, total: " + getKilometraje();
+    }
+
+    @Override
+    public String obtenerEtiquetaAmbiental() {
+        return "Roja";
+    }
+
+    @Override
+    public int evaluarRiesgo() {
+        return getKilometraje() > 100000 ? 8 : 4;
+    }
+
+    @Override
+    public String diagnosticarNeumaticos() {
+        return "Revisar presión y desgaste";
+    }
+
+    @Override
+    public boolean chequeoFrenado() {
+        return getKilometraje() > 100000;
+    }
+
+    @Override
+    public double calcularTiempoCarga(double cantidadKg) {
+        return cantidadKg / getCapacidadCarga();
+    }
 }
