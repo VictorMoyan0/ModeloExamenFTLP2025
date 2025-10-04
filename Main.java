@@ -104,3 +104,7 @@ public class Furgoneta extends Vehiculo {
         return cantidadKg / 1500.0; // velocidad media de carga 1500 kg/h
     }
 }
+public class AutoEspecializado extends Vehiculo {
+    private double costoBaseMantenimiento;
+    private String tipoMotor; // "Eléctrico" o "Convencional"
+}
