@@ -26,3 +26,12 @@ public abstract class Vehiculo {
     public abstract boolean chequeoFrenado();
     public abstract double calcularTiempoCarga(double cantidadKg);
 }
+public class Camion extends Vehiculo{
+    private int ejes;
+    private double consumoCombustibleKm;
+    public Camion(String id, double kilometraje, double capacidadCarga, int ejes, double consumoKm) {
+        super(id, kilometraje, capacidadCarga);
+        this.ejes = ejes;
+        this.consumoCombustibleKm = consumoKm;
+    }
+}
