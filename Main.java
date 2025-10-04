@@ -107,4 +107,9 @@ public class Furgoneta extends Vehiculo {
 public class AutoEspecializado extends Vehiculo {
     private double costoBaseMantenimiento;
     private String tipoMotor; // "Eléctrico" o "Convencional"
+    public AutoEspecializado(String id, double kilometraje, double capacidadCarga, double costoBaseMantenimiento, String tipoMotor) {
+        super(id, kilometraje, capacidadCarga);
+        this.costoBaseMantenimiento = costoBaseMantenimiento;
+        this.tipoMotor = tipoMotor;
+    }
 }
