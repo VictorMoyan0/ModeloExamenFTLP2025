@@ -1,5 +1,21 @@
 public class Main {
     public static void main(String[] args) {
+        Camion camion = new Camion(2500, "Ruta larga", "Etiqueta C", 3, "Buen estado", true, 2.5, 18);
+        Furgoneta furgoneta = new Furgoneta(1200, "Entrega urbana", "Etiqueta B", 2, "Desgaste leve", true, 1.2, true);
+        AutoEspecializado auto = new AutoEspecializado(3000, "Turno de emergencia", "Etiqueta ECO", 4, "Excelente", true, 1.0, "Emergencias");
+
+        camion.mostrarInfo();
+        camion.realizarMantenimiento();
+
+        System.out.println("----------------------");
+
+        furgoneta.mostrarInfo();
+        furgoneta.realizarMantenimiento();
+
+        System.out.println("----------------------");
+
+        auto.mostrarInfo();
+        auto.realizarMantenimiento();
     }
 }
 
